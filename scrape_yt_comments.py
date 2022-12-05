@@ -7,15 +7,24 @@ from dotenv import load_dotenv
 from apiclient.discovery import build
 from sqlalchemy import create_engine,text
 
-def create_connections():
-    load_dotenv()
-    key=os.getenv("GOOGLE_API_KEY")
-    youtube = build("youtube", "v3", developerKey=key)
-    #URL_DB = os.getenv("DATABASE_URL")
-    URL_DB = 'sqlite:///capstone.db'
-    db_engine = create_engine(URL_DB)
-    conn=db_engine.connect()
-    return youtube, conn
+load_dotenv()
+key=os.getenv("GOOGLE_API_KEY")
+youtube = build("youtube", "v3", developerKey=key)
+#URL_DB = os.getenv("DATABASE_URL")
+URL_DB = 'sqlite:///capstone.db'
+db_engine = create_engine(URL_DB)
+conn=db_engine.connect()
+
+
+# def create_connections():
+#     load_dotenv()
+#     key=os.getenv("GOOGLE_API_KEY")
+#     youtube = build("youtube", "v3", developerKey=key)
+#     #URL_DB = os.getenv("DATABASE_URL")
+#     URL_DB = 'sqlite:///capstone.db'
+#     db_engine = create_engine(URL_DB)
+#     conn=db_engine.connect()
+#     return youtube, conn
 
 
 def vid_by_kw(keyword):
@@ -121,7 +130,7 @@ if __name__=='__main__':
     import sys
     keyword=sys.argv[1]
     
-    youtube,conn=create_connections()
+    #youtube,conn=create_connections()
     while True:
         try:
             print("Searching for videos related to:", keyword,"...") 
