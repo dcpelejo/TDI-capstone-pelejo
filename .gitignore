@@ -2,4 +2,7 @@ __pychache__
 venv
 .env
 .ipynb_checkpoints/
+<<<<<<< HEAD
 .db
+=======
+>>>>>>> 04cbb71a0adca20260d2e2e6b6b6d88ec3843ac2
